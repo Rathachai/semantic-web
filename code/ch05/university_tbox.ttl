@@ -1,0 +1,320 @@
+# ============================================================================
+# university_tbox.ttl
+# ----------------------------------------------------------------------------
+# TBox + RBox of the University ontology.
+#
+# Contains ONLY schema-level axioms:
+#   - class hierarchy (primitive classes)
+#   - defined classes (owl:equivalentClass)
+#   - disjointness
+#   - role hierarchy, characteristics, chains
+#   - domain / range
+#
+# Instance data lives in university_abox.ttl -- keep them separate so that
+# the TBox can be version-controlled and reviewed independently.
+# ============================================================================
+
+@prefix uni:     <http://example.org/university#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+
+# ----------------------------------------------------------------------------
+# Ontology header
+# ----------------------------------------------------------------------------
+
+<http://example.org/university> a owl:Ontology ;
+    dcterms:title       "University Ontology — TBox"@en ;
+    dcterms:description "Schema for students, staff, courses and organizational units."@en ;
+    dcterms:created     "2025-01-15"^^xsd:date ;
+    dcterms:modified    "2025-06-01"^^xsd:date ;
+    dcterms:license     <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo     "1.2.0" ;
+    owl:versionIRI      <http://example.org/university/1.2.0> ;
+    vann:preferredNamespacePrefix "uni" ;
+    vann:preferredNamespaceUri    "http://example.org/university#" .
+
+# ============================================================================
+# TBox — Primitive classes
+# ============================================================================
+
+uni:Agent a owl:Class ;
+    rdfs:label   "Agent"@en ;
+    rdfs:comment "Anything capable of acting: a person or an organization."@en .
+
+uni:Person a owl:Class ;
+    rdfs:label      "Person"@en ;
+    rdfs:comment    "A human being affiliated with the university."@en ;
+    rdfs:subClassOf uni:Agent ;
+    owl:equivalentClass foaf:Person .
+
+uni:Student a owl:Class ;
+    rdfs:label      "Student"@en ;
+    rdfs:comment    """A person admitted to a degree programme. Covers currently
+enrolled students only; use uni:Alumnus for graduates."""@en ;
+    rdfs:subClassOf uni:Person .
+
+uni:Staff a owl:Class ;
+    rdfs:label      "Staff"@en ;
+    rdfs:comment    "A person employed by the university."@en ;
+    rdfs:subClassOf uni:Person .
+
+uni:Professor a owl:Class ;
+    rdfs:label      "Professor"@en ;
+    rdfs:comment    "A staff member who teaches and conducts research."@en ;
+    rdfs:subClassOf uni:Staff ,
+        [ a owl:Restriction ;
+          owl:onProperty     uni:hasDegree ;
+          owl:someValuesFrom uni:Doctorate ] .
+
+uni:AdminStaff a owl:Class ;
+    rdfs:label      "Administrative Staff"@en ;
+    rdfs:comment    "A staff member in a non-academic role."@en ;
+    rdfs:subClassOf uni:Staff .
+
+uni:Organization a owl:Class ;
+    rdfs:label      "Organization"@en ;
+    rdfs:subClassOf uni:Agent .
+
+uni:University a owl:Class ;
+    rdfs:label      "University"@en ;
+    rdfs:subClassOf uni:Organization .
+
+uni:Faculty a owl:Class ;
+    rdfs:label      "Faculty"@en ;
+    rdfs:comment    "An academic division grouping several departments."@en ;
+    rdfs:subClassOf uni:Organization .
+
+uni:Department a owl:Class ;
+    rdfs:label      "Department"@en ;
+    rdfs:subClassOf uni:Organization .
+
+uni:Course a owl:Class ;
+    rdfs:label      "Course"@en ;
+    rdfs:comment    "A unit of teaching delivered over one academic term."@en .
+
+uni:UndergraduateCourse a owl:Class ;
+    rdfs:label      "Undergraduate Course"@en ;
+    rdfs:subClassOf uni:Course .
+
+uni:GraduateCourse a owl:Class ;
+    rdfs:label      "Graduate Course"@en ;
+    rdfs:subClassOf uni:Course .
+
+uni:Degree a owl:Class ;
+    rdfs:label "Degree"@en .
+
+uni:Doctorate a owl:Class ;
+    rdfs:label      "Doctorate"@en ;
+    rdfs:subClassOf uni:Degree .
+
+uni:Publication a owl:Class ;
+    rdfs:label "Publication"@en .
+
+# ----------------------------------------------------------------------------
+# Disjointness -- without these the reasoner can never detect an error
+# ----------------------------------------------------------------------------
+
+uni:Student owl:disjointWith uni:Staff .
+
+uni:UndergraduateCourse owl:disjointWith uni:GraduateCourse .
+
+[] a owl:AllDisjointClasses ;
+   owl:members ( uni:Person uni:Organization uni:Course uni:Degree uni:Publication ) .
+
+# ============================================================================
+# TBox — Defined classes (reasoner classifies individuals automatically)
+# ============================================================================
+
+uni:GraduateStudent a owl:Class ;
+    rdfs:label   "Graduate Student"@en ;
+    rdfs:comment "A student enrolled in at least one graduate course."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            uni:Student
+            [ a owl:Restriction ;
+              owl:onProperty     uni:enrolledIn ;
+              owl:someValuesFrom uni:GraduateCourse ]
+        )
+    ] .
+
+uni:UndergraduateStudent a owl:Class ;
+    rdfs:label   "Undergraduate Student"@en ;
+    rdfs:comment "A student enrolled only in undergraduate courses."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            uni:Student
+            [ a owl:Restriction ;
+              owl:onProperty    uni:enrolledIn ;
+              owl:allValuesFrom uni:UndergraduateCourse ]
+            [ a owl:Restriction ;
+              owl:onProperty     uni:enrolledIn ;
+              owl:someValuesFrom uni:UndergraduateCourse ]
+        )
+    ] .
+
+uni:BusyProfessor a owl:Class ;
+    rdfs:label   "Busy Professor"@en ;
+    rdfs:comment "A professor teaching three or more courses in the current term."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            uni:Professor
+            [ a owl:Restriction ;
+              owl:onProperty              uni:teaches ;
+              owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+              owl:onClass                 uni:Course ]
+        )
+    ] .
+
+uni:Supervisor a owl:Class ;
+    rdfs:label   "Supervisor"@en ;
+    rdfs:comment "A professor who supervises at least one graduate student."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            uni:Professor
+            [ a owl:Restriction ;
+              owl:onProperty     uni:supervises ;
+              owl:someValuesFrom uni:GraduateStudent ]
+        )
+    ] .
+
+uni:PublishedResearcher a owl:Class ;
+    rdfs:label   "Published Researcher"@en ;
+    rdfs:comment "Anyone who has authored at least one publication."@en ;
+    owl:equivalentClass [
+        a owl:Restriction ;
+        owl:onProperty     uni:authorOf ;
+        owl:someValuesFrom uni:Publication
+    ] .
+
+# ============================================================================
+# RBox — Object properties
+# ============================================================================
+
+uni:involvedIn a owl:ObjectProperty ;
+    rdfs:label   "involved in"@en ;
+    rdfs:comment "Generic relation between a person and a course."@en ;
+    rdfs:domain  uni:Person ;
+    rdfs:range   uni:Course .
+
+uni:enrolledIn a owl:ObjectProperty ;
+    rdfs:label         "enrolled in"@en ;
+    rdfs:comment       """Relates a student to a course they currently attend.
+Does not cover completed or dropped courses."""@en ;
+    rdfs:subPropertyOf uni:involvedIn ;
+    rdfs:domain        uni:Student ;
+    rdfs:range         uni:Course .
+
+uni:teaches a owl:ObjectProperty ;
+    rdfs:label         "teaches"@en ;
+    rdfs:subPropertyOf uni:involvedIn ;
+    rdfs:domain        uni:Professor ;
+    rdfs:range         uni:Course .
+
+uni:hasStudent a owl:ObjectProperty ;
+    rdfs:label    "has student"@en ;
+    owl:inverseOf uni:enrolledIn .
+
+uni:taughtBy a owl:ObjectProperty ;
+    rdfs:label    "taught by"@en ;
+    owl:inverseOf uni:teaches .
+
+uni:supervises a owl:ObjectProperty ;
+    rdfs:label   "supervises"@en ;
+    rdfs:domain  uni:Professor ;
+    rdfs:range   uni:Student .
+
+uni:hasSupervisor a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label    "has supervisor"@en ;
+    owl:inverseOf uni:supervises .
+
+uni:memberOf a owl:ObjectProperty ;
+    rdfs:label  "member of"@en ;
+    rdfs:domain uni:Person ;
+    rdfs:range  uni:Organization .
+
+uni:partOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label   "part of"@en ;
+    rdfs:comment "Organizational containment: Department partOf Faculty partOf University."@en ;
+    rdfs:domain  uni:Organization ;
+    rdfs:range   uni:Organization .
+
+uni:hasDegree a owl:ObjectProperty ;
+    rdfs:label  "has degree"@en ;
+    rdfs:domain uni:Person ;
+    rdfs:range  uni:Degree .
+
+uni:authorOf a owl:ObjectProperty ;
+    rdfs:label  "author of"@en ;
+    rdfs:range  uni:Publication .
+
+uni:colleagueOf a owl:ObjectProperty , owl:SymmetricProperty , owl:IrreflexiveProperty ;
+    rdfs:label  "colleague of"@en ;
+    rdfs:domain uni:Staff ;
+    rdfs:range  uni:Staff .
+
+# ----------------------------------------------------------------------------
+# Role chains (OWL 2)
+# ----------------------------------------------------------------------------
+
+# memberOf ∘ partOf ⊑ memberOfOrganization
+uni:memberOfOrganization a owl:ObjectProperty ;
+    rdfs:label "member of organization"@en ;
+    owl:propertyChainAxiom ( uni:memberOf uni:partOf ) .
+
+# teaches ∘ hasStudent ⊑ instructorOf
+uni:instructorOf a owl:ObjectProperty ;
+    rdfs:label   "instructor of"@en ;
+    rdfs:comment "A professor is an instructor of every student enrolled in a course they teach."@en ;
+    owl:propertyChainAxiom ( uni:teaches uni:hasStudent ) .
+
+# ----------------------------------------------------------------------------
+# Role disjointness
+# ----------------------------------------------------------------------------
+
+uni:teaches owl:propertyDisjointWith uni:enrolledIn .
+
+# ============================================================================
+# RBox — Datatype properties
+# ============================================================================
+
+uni:studentId a owl:DatatypeProperty , owl:FunctionalProperty , owl:InverseFunctionalProperty ;
+    rdfs:label   "student ID"@en ;
+    rdfs:comment "Official student identifier; uniquely identifies one student."@en ;
+    rdfs:domain  uni:Student ;
+    rdfs:range   xsd:string .
+
+uni:employeeId a owl:DatatypeProperty , owl:FunctionalProperty , owl:InverseFunctionalProperty ;
+    rdfs:label  "employee ID"@en ;
+    rdfs:domain uni:Staff ;
+    rdfs:range  xsd:string .
+
+uni:courseCode a owl:DatatypeProperty , owl:FunctionalProperty , owl:InverseFunctionalProperty ;
+    rdfs:label  "course code"@en ;
+    rdfs:domain uni:Course ;
+    rdfs:range  xsd:string .
+
+uni:credits a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label  "credits"@en ;
+    rdfs:domain uni:Course ;
+    rdfs:range  xsd:integer .
+
+uni:gpa a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label  "grade point average"@en ;
+    rdfs:domain uni:Student ;
+    rdfs:range  xsd:decimal .
+
+# NOTE: xsd:gYear is a valid XSD datatype but is NOT part of the OWL 2
+# datatype map, so HermiT rejects it. Use xsd:integer instead.
+uni:enrollmentYear a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label  "enrollment year"@en ;
+    rdfs:domain uni:Student ;
+    rdfs:range  xsd:integer .
