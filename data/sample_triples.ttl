@@ -1,0 +1,165 @@
+# ============================================================================
+# sample_triples.ttl
+# ----------------------------------------------------------------------------
+# Sample RDF dataset used throughout Chapters 01-03 of
+# "Semantic Web & Linked Open Data with Python".
+#
+# Domain : famous scientists, their affiliations and awards
+# Format : Turtle (shorthand form)
+# Triples: 60+
+# ============================================================================
+
+@base         <http://example.org/> .
+@prefix ex:   <http://example.org/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema:  <https://schema.org/> .
+
+# ----------------------------------------------------------------------------
+# Classes (a minimal schema)
+# ----------------------------------------------------------------------------
+
+ex:Person       a rdfs:Class ;
+                rdfs:label   "Person"@en ;
+                rdfs:comment "A human being."@en .
+
+ex:Scientist    a rdfs:Class ;
+                rdfs:label      "Scientist"@en ;
+                rdfs:subClassOf ex:Person .
+
+ex:Organization a rdfs:Class ;
+                rdfs:label "Organization"@en .
+
+ex:University   a rdfs:Class ;
+                rdfs:label      "University"@en ;
+                rdfs:subClassOf ex:Organization .
+
+ex:Award        a rdfs:Class ;
+                rdfs:label "Award"@en .
+
+ex:City         a rdfs:Class ;
+                rdfs:label "City"@en .
+
+ex:Country      a rdfs:Class ;
+                rdfs:label "Country"@en .
+
+# ----------------------------------------------------------------------------
+# Properties
+# ----------------------------------------------------------------------------
+
+ex:worksAt   a rdf:Property ;
+             rdfs:label  "works at"@en ;
+             rdfs:domain ex:Person ;
+             rdfs:range  ex:Organization .
+
+ex:wonAward  a rdf:Property ;
+             rdfs:label  "won award"@en ;
+             rdfs:domain ex:Person ;
+             rdfs:range  ex:Award .
+
+ex:birthPlace a rdf:Property ;
+             rdfs:label  "birth place"@en ;
+             rdfs:domain ex:Person ;
+             rdfs:range  ex:City .
+
+ex:locatedIn a rdf:Property ;
+             rdfs:label "located in"@en .
+
+ex:field     a rdf:Property ;
+             rdfs:label "field of work"@en .
+
+# ----------------------------------------------------------------------------
+# Individuals: scientists
+# ----------------------------------------------------------------------------
+
+ex:MarieCurie a ex:Scientist ;
+    foaf:name        "Marie Curie" ;
+    foaf:givenName   "Marie" ;
+    foaf:familyName  "Curie" ;
+    schema:birthDate "1867-11-07"^^xsd:date ;
+    schema:deathDate "1934-07-04"^^xsd:date ;
+    ex:birthPlace    ex:Warsaw ;
+    ex:worksAt       ex:UniversityOfParis ;
+    ex:wonAward      ex:NobelPrizeInPhysics , ex:NobelPrizeInChemistry ;
+    ex:field         "Physics" , "Chemistry" ;
+    foaf:knows       ex:PierreCurie , ex:AlbertEinstein ;
+    owl:sameAs       <http://www.wikidata.org/entity/Q7186> .
+
+ex:PierreCurie a ex:Scientist ;
+    foaf:name        "Pierre Curie" ;
+    schema:birthDate "1859-05-15"^^xsd:date ;
+    ex:birthPlace    ex:Paris ;
+    ex:worksAt       ex:UniversityOfParis ;
+    ex:wonAward      ex:NobelPrizeInPhysics ;
+    ex:field         "Physics" ;
+    foaf:knows       ex:MarieCurie .
+
+ex:AlbertEinstein a ex:Scientist ;
+    foaf:name        "Albert Einstein" ;
+    schema:birthDate "1879-03-14"^^xsd:date ;
+    ex:birthPlace    ex:Ulm ;
+    ex:worksAt       ex:PrincetonUniversity ;
+    ex:wonAward      ex:NobelPrizeInPhysics ;
+    ex:field         "Physics" ;
+    owl:sameAs       <http://www.wikidata.org/entity/Q937> .
+
+ex:AlanTuring a ex:Scientist ;
+    foaf:name        "Alan Turing" ;
+    schema:birthDate "1912-06-23"^^xsd:date ;
+    ex:birthPlace    ex:London ;
+    ex:worksAt       ex:UniversityOfManchester ;
+    ex:field         "Computer Science" , "Mathematics" .
+
+# ----------------------------------------------------------------------------
+# Individuals: organizations
+# ----------------------------------------------------------------------------
+
+ex:UniversityOfParis a ex:University ;
+    foaf:name    "University of Paris" ;
+    ex:locatedIn ex:Paris .
+
+ex:PrincetonUniversity a ex:University ;
+    foaf:name    "Princeton University" ;
+    ex:locatedIn ex:Princeton .
+
+ex:UniversityOfManchester a ex:University ;
+    foaf:name    "University of Manchester" ;
+    ex:locatedIn ex:Manchester .
+
+# ----------------------------------------------------------------------------
+# Individuals: places
+# ----------------------------------------------------------------------------
+
+ex:Warsaw     a ex:City ; foaf:name "Warsaw"     ; ex:locatedIn ex:Poland .
+ex:Paris      a ex:City ; foaf:name "Paris"      ; ex:locatedIn ex:France .
+ex:Ulm        a ex:City ; foaf:name "Ulm"        ; ex:locatedIn ex:Germany .
+ex:London     a ex:City ; foaf:name "London"     ; ex:locatedIn ex:UnitedKingdom .
+ex:Manchester a ex:City ; foaf:name "Manchester" ; ex:locatedIn ex:UnitedKingdom .
+ex:Princeton  a ex:City ; foaf:name "Princeton"  ; ex:locatedIn ex:UnitedStates .
+
+ex:Poland        a ex:Country ; foaf:name "Poland" .
+ex:France        a ex:Country ; foaf:name "France" .
+ex:Germany       a ex:Country ; foaf:name "Germany" .
+ex:UnitedKingdom a ex:Country ; foaf:name "United Kingdom" .
+ex:UnitedStates  a ex:Country ; foaf:name "United States" .
+
+# ----------------------------------------------------------------------------
+# Individuals: awards
+# ----------------------------------------------------------------------------
+
+ex:NobelPrizeInPhysics a ex:Award ;
+    foaf:name        "Nobel Prize in Physics" ;
+    dcterms:created  "1901"^^xsd:gYear .
+
+ex:NobelPrizeInChemistry a ex:Award ;
+    foaf:name        "Nobel Prize in Chemistry" ;
+    dcterms:created  "1901"^^xsd:gYear .
+
+# The two Nobel prizes are genuinely different individuals.
+# Without this axiom an OWL reasoner cannot conclude "won at least 2 awards"
+# because OWL does not make the Unique Name Assumption.
+ex:NobelPrizeInPhysics owl:differentFrom ex:NobelPrizeInChemistry .
