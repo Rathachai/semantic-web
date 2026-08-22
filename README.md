@@ -50,25 +50,24 @@ pip install rdflib owlready2 SPARQLWrapper pyshacl pandas networkx pyvis request
 ## Folder Structure
 
 ```
-semantic-web-course/
-├── README.md
-├── index.md
-│   ├── index.md
-│   ├── 01-introduction/          # Web evolution, SW vision, SW stack
-│   ├── 02-rdf/                   # Triple, URI, Turtle (full + shorthand)
-│   ├── 03-rdfs/                  # Class, hierarchy, domain/range, entailment
-│   ├── 04-logics/                # FOL, Description Logic, reasoners
-│   ├── 05-knowledge-management/  # TBox / ABox / RBox
-│   ├── 06-sparql/                # SELECT, CONSTRUCT, UPDATE, federation
-│   ├── 07-python-semantic-web/   # rdflib, owlready2, pySHACL, ETL, API
-│   ├── 08-owl/                   # Species, restrictions, cardinality
-│   ├── 09-well-known-ontologies/ # DC, FOAF, schema.org, SKOS, Wikidata
-│   ├── 10-ontology-design/       # Methodology, CQ, ODP, evaluation
-│   ├── 11-swrl/                  # Rules, builtins, SQWRL
-│   ├── 12-linked-open-data/      # 5-star, LOD Cloud, publishing
-│   └── appendix/                 # Cheat sheets, glossary, references
+.
+├── README.md                     # ภาพรวมคอร์ส
+├── index.md                      # หน้าแรก + chapter map
+├── 01-introduction/              # Web evolution, SW vision, SW stack
+├── 02-rdf/                       # Triple, URI, Turtle (full + shorthand)
+├── 03-rdfs/                      # Class, hierarchy, domain/range, entailment
+├── 04-logics/                    # FOL, Description Logic, reasoners
+├── 05-knowledge-management/      # TBox / ABox / RBox
+├── 06-sparql/                    # SELECT, CONSTRUCT, UPDATE, federation
+├── 07-python-semantic-web/       # rdflib, owlready2, pySHACL, ETL, API
+├── 08-owl/                       # Species, restrictions, cardinality
+├── 09-well-known-ontologies/     # DC, FOAF, schema.org, SKOS, Wikidata
+├── 10-ontology-design/           # Methodology, CQ, ODP, evaluation
+├── 11-swrl/                      # Rules, builtins, SQWRL
+├── 12-linked-open-data/          # 5-star, LOD Cloud, publishing
+├── appendix/                     # Cheat sheets, glossary, references
 ├── code/
-│   ├── ch01/ ... ch12/           # Runnable Python + Turtle companions
+│   └── ch01/ ... ch12/           # Runnable Python + Turtle companions
 └── data/
     ├── sample_triples.ttl
     ├── university.ttl
