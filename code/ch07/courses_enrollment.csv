@@ -1,0 +1,9 @@
+student_id,student_name,email,course_code,course_title,credits,term,grade,department
+S-2024-0421,Alice Johnson,alice@example.edu,CS501,Knowledge Graphs,4,2024-2,A,Computer Science
+S-2024-0421,Alice Johnson,alice@example.edu,CS601,Advanced Machine Learning,4,2024-2,A,Computer Science
+S-2024-0512,Bob Martinez,bob@example.edu,CS101,Introduction to Programming,3,2024-1,B+,Computer Science
+S-2024-0512,Bob Martinez,bob@example.edu,CS201,Data Structures,3,2024-2,B,Computer Science
+S-2023-0198,Carol Nguyen,carol@example.edu,MA101,Calculus I,4,2024-1,A,Mathematics
+S-2023-0198,Carol Nguyen,carol@example.edu,CS101,Introduction to Programming,3,2024-2,A-,Mathematics
+S-2025-0033,Daniel Kim,,CS101,Introduction to Programming,3,2024-2,,Computer Science
+S-2025-0044,Emma Wilson,emma@example.edu,CS301,Database Systems,3,2024-2,B+,Computer Science
