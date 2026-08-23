@@ -1,0 +1,51 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.example.org/linkset/dbpedia-sameas> a void:Linkset ;
+    dcterms:title "sameAs links to DBpedia"@en ;
+    void:linkPredicate owl:sameAs ;
+    void:subjectsTarget <https://data.example.org/dataset/universities> ;
+    void:triples 4 .
+
+<https://data.example.org/linkset/geonames-sameas> a void:Linkset ;
+    dcterms:title "sameAs links to GeoNames"@en ;
+    void:linkPredicate owl:sameAs ;
+    void:subjectsTarget <https://data.example.org/dataset/universities> ;
+    void:triples 2 .
+
+<https://data.example.org/linkset/wikidata-exactmatch> a void:Linkset ;
+    dcterms:title "exactMatch links to Wikidata"@en ;
+    void:linkPredicate skos:exactMatch ;
+    void:subjectsTarget <https://data.example.org/dataset/universities> ;
+    void:triples 3 .
+
+<https://data.example.org/linkset/wikidata-sameas> a void:Linkset ;
+    dcterms:title "sameAs links to Wikidata"@en ;
+    void:linkPredicate owl:sameAs ;
+    void:subjectsTarget <https://data.example.org/dataset/universities> ;
+    void:triples 5 .
+
+<https://data.example.org/dataset/universities> a void:Dataset ;
+    dcterms:description "Universities, campuses, cities and fields of study in Thailand, linked to Wikidata, DBpedia and GeoNames."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-01-15"^^xsd:date ;
+    dcterms:publisher <https://data.example.org/org/example> ;
+    dcterms:title "Thai Universities Linked Data"@en ;
+    void:classes 8 ;
+    void:dataDump <https://data.example.org/dump/universities.ttl> ;
+    void:distinctObjects 74 ;
+    void:distinctSubjects 18 ;
+    void:entities 18 ;
+    void:feature <http://www.w3.org/ns/formats/Turtle> ;
+    void:properties 16 ;
+    void:sparqlEndpoint <https://data.example.org/sparql> ;
+    void:subset <https://data.example.org/linkset/dbpedia-sameas>,
+        <https://data.example.org/linkset/geonames-sameas>,
+        <https://data.example.org/linkset/wikidata-exactmatch>,
+        <https://data.example.org/linkset/wikidata-sameas> ;
+    void:triples 96 ;
+    void:uriSpace "https://data.example.org/" .
+

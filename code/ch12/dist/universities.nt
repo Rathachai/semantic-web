@@ -1,0 +1,96 @@
+<https://data.example.org/field/medicine> <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.wikidata.org/entity/Q11190> .
+<https://data.example.org/campus/kmitl-main> <https://data.example.org/vocab#locatedIn> <https://data.example.org/place/bangkok> .
+<https://data.example.org/vocab#locatedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.example.org/vocab#hasCampus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.example.org/vocab#University> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.example.org/campus/cmu-main> <http://www.w3.org/2000/01/rdf-schema#label> "CMU Suthep Campus"@en .
+<https://data.example.org/university/chula> <https://data.example.org/vocab#teachesField> <https://data.example.org/field/medicine> .
+<https://data.example.org/field/medicine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://data.example.org/university/cmu> <https://data.example.org/vocab#teachesField> <https://data.example.org/field/medicine> .
+<https://data.example.org/place/bangkok> <http://www.w3.org/2002/07/owl#sameAs> <http://www.wikidata.org/entity/Q1861> .
+<https://data.example.org/field/engineering> <http://www.w3.org/2004/02/skos/core#prefLabel> "วิศวกรรมศาสตร์"@th .
+<https://data.example.org/university/cmu> <http://www.w3.org/2000/01/rdf-schema#label> "Chiang Mai University"@en .
+<https://data.example.org/university/kmitl> <https://schema.org/url> <https://www.kmitl.ac.th/> .
+<https://data.example.org/vocab#teachesField> <http://www.w3.org/2000/01/rdf-schema#label> "teaches field"@en .
+<https://data.example.org/vocab#locatedIn> <http://www.w3.org/2000/01/rdf-schema#label> "located in"@en .
+<https://data.example.org/vocab#City> <http://www.w3.org/2000/01/rdf-schema#label> "เมือง"@th .
+<https://data.example.org/vocab#Campus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/2002/07/owl#sameAs> <http://sws.geonames.org/1153671/> .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/2000/01/rdf-schema#label> "Chiang Mai"@en .
+<https://data.example.org/field/computer-science> <http://www.w3.org/2004/02/skos/core#prefLabel> "Computer science"@en .
+<https://data.example.org/university/kmitl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#University> .
+<https://data.example.org/vocab#foundingYear> <http://www.w3.org/2000/01/rdf-schema#label> "founding year"@en .
+<https://data.example.org/university/cmu> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Chiang_Mai_University> .
+<https://data.example.org/place/bangkok> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Bangkok> .
+<https://data.example.org/field/engineering> <http://www.w3.org/2004/02/skos/core#prefLabel> "Engineering"@en .
+<https://data.example.org/university/cmu> <http://www.w3.org/2000/01/rdf-schema#label> "มหาวิทยาลัยเชียงใหม่"@th .
+<https://data.example.org/university/kmitl> <http://www.w3.org/2000/01/rdf-schema#label> "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"@th .
+<https://data.example.org/vocab#hasCampus> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.example.org/vocab#Campus> .
+<https://data.example.org/vocab#City> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.example.org/vocab#Campus> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Place> .
+<https://data.example.org/campus/cmu-main> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#Campus> .
+<https://data.example.org/university/kmitl> <https://data.example.org/vocab#hasCampus> <https://data.example.org/campus/kmitl-main> .
+<https://data.example.org/field/medicine> <http://www.w3.org/2004/02/skos/core#prefLabel> "Medicine"@en .
+<https://data.example.org/vocab#foundingYear> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.example.org/vocab#University> .
+<https://data.example.org/vocab#University> <http://www.w3.org/2000/01/rdf-schema#label> "University"@en .
+<https://data.example.org/vocab#hasCampus> <http://www.w3.org/2000/01/rdf-schema#label> "has campus"@en .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "18.7883"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#City> .
+<https://data.example.org/place/bangkok> <http://www.w3.org/2000/01/rdf-schema#label> "Bangkok"@en .
+<https://data.example.org/university/chula> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#University> .
+<https://data.example.org/place/bangkok> <http://www.w3.org/2002/07/owl#sameAs> <http://sws.geonames.org/1609350/> .
+<https://data.example.org/vocab#hasCampus> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.example.org/vocab#University> .
+<https://data.example.org/campus/chula-main> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#Campus> .
+<https://data.example.org/vocab#City> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/City> .
+<https://data.example.org/vocab#University> <http://www.w3.org/2000/01/rdf-schema#label> "มหาวิทยาลัย"@th .
+<https://data.example.org/university/chula> <https://data.example.org/vocab#foundingYear> "1917"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<https://data.example.org/university/chula> <http://www.w3.org/2000/01/rdf-schema#label> "จุฬาลงกรณ์มหาวิทยาลัย"@th .
+<https://data.example.org/campus/kmitl-main> <http://www.w3.org/2000/01/rdf-schema#label> "KMITL Ladkrabang Campus"@en .
+<https://data.example.org/campus/kmitl-main> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#Campus> .
+<https://data.example.org/university/kmitl> <http://www.w3.org/2002/07/owl#sameAs> <http://www.wikidata.org/entity/Q1470117> .
+<https://data.example.org/field/engineering> <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.wikidata.org/entity/Q11023> .
+<https://data.example.org/vocab#Campus> <http://www.w3.org/2000/01/rdf-schema#label> "วิทยาเขต"@th .
+<https://data.example.org/vocab#locatedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.example.org/vocab#Campus> .
+<https://data.example.org/place/bangkok> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "13.7563"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://data.example.org/campus/chula-main> <http://www.w3.org/2000/01/rdf-schema#label> "Chulalongkorn Main Campus"@en .
+<https://data.example.org/field/engineering> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://data.example.org/university/chula> <http://www.w3.org/2002/07/owl#sameAs> <http://www.wikidata.org/entity/Q321094> .
+<https://data.example.org/university/kmitl> <https://data.example.org/vocab#teachesField> <https://data.example.org/field/engineering> .
+<https://data.example.org/vocab#foundingYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/2000/01/rdf-schema#label> "เชียงใหม่"@th .
+<https://data.example.org/field/computer-science> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://data.example.org/university/cmu> <https://data.example.org/vocab#hasCampus> <https://data.example.org/campus/cmu-main> .
+<https://data.example.org/field/medicine> <http://www.w3.org/2004/02/skos/core#prefLabel> "แพทยศาสตร์"@th .
+<https://data.example.org/university/cmu> <https://data.example.org/vocab#foundingYear> "1964"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<https://data.example.org/university/kmitl> <http://www.w3.org/2000/01/rdf-schema#label> "King Mongkut's Institute of Technology Ladkrabang"@en .
+<https://data.example.org/university/cmu> <https://schema.org/url> <https://www.cmu.ac.th/> .
+<https://data.example.org/vocab#foundingYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.example.org/vocab#City> <http://www.w3.org/2000/01/rdf-schema#label> "City"@en .
+<https://data.example.org/vocab#teachesField> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.example.org/vocab#University> .
+<https://data.example.org/place/bangkok> <http://www.w3.org/2000/01/rdf-schema#label> "กรุงเทพมหานคร"@th .
+<https://data.example.org/place/bangkok> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#City> .
+<https://data.example.org/university/chula> <http://www.w3.org/2000/01/rdf-schema#label> "Chulalongkorn University"@en .
+<https://data.example.org/vocab#University> <http://www.w3.org/2000/01/rdf-schema#comment> "A degree-granting higher education institution."@en .
+<https://data.example.org/university/kmitl> <https://data.example.org/vocab#foundingYear> "1960"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<https://data.example.org/university/chula> <https://data.example.org/vocab#teachesField> <https://data.example.org/field/engineering> .
+<https://data.example.org/university/chula> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Chulalongkorn_University> .
+<https://data.example.org/place/bangkok> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "100.5018"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Chiang_Mai> .
+<https://data.example.org/field/computer-science> <http://www.w3.org/2004/02/skos/core#prefLabel> "วิทยาการคอมพิวเตอร์"@th .
+<https://data.example.org/vocab#Campus> <http://www.w3.org/2000/01/rdf-schema#label> "Campus"@en .
+<https://data.example.org/vocab#teachesField> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.example.org/university/kmitl> <https://data.example.org/vocab#teachesField> <https://data.example.org/field/computer-science> .
+<https://data.example.org/university/chula> <https://schema.org/url> <https://www.chula.ac.th/> .
+<https://data.example.org/field/computer-science> <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.wikidata.org/entity/Q21198> .
+<https://data.example.org/vocab#teachesField> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://data.example.org/university/cmu> <http://www.w3.org/2002/07/owl#sameAs> <http://www.wikidata.org/entity/Q1051067> .
+<https://data.example.org/vocab#locatedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.example.org/vocab#City> .
+<https://data.example.org/university/chula> <https://data.example.org/vocab#hasCampus> <https://data.example.org/campus/chula-main> .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "98.9853"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://data.example.org/vocab#foundingYear> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#gYear> .
+<https://data.example.org/campus/cmu-main> <https://data.example.org/vocab#locatedIn> <https://data.example.org/place/chiang-mai> .
+<https://data.example.org/university/cmu> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.example.org/vocab#University> .
+<https://data.example.org/campus/chula-main> <https://data.example.org/vocab#locatedIn> <https://data.example.org/place/bangkok> .
+<https://data.example.org/vocab#University> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CollegeOrUniversity> .
+<https://data.example.org/place/chiang-mai> <http://www.w3.org/2002/07/owl#sameAs> <http://www.wikidata.org/entity/Q37742> .
+<https://data.example.org/university/cmu> <https://data.example.org/vocab#teachesField> <https://data.example.org/field/computer-science> .

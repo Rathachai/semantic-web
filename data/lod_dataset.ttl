@@ -1,0 +1,133 @@
+# ============================================================
+#  Sample 5-star Linked Open Data dataset
+#  Universities and campuses in Thailand
+#
+#  Demonstrates:
+#    - slash URIs for instance data, hash URIs for the vocabulary
+#    - reuse of standard vocabularies (schema.org, SKOS, WGS84, Dublin Core)
+#    - outgoing owl:sameAs links to Wikidata, DBpedia and GeoNames
+#    - an explicit open licence
+# ============================================================
+
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix schema: <https://schema.org/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+
+@prefix voc:   <https://data.example.org/vocab#> .
+@prefix uni:   <https://data.example.org/university/> .
+@prefix camp:  <https://data.example.org/campus/> .
+@prefix place: <https://data.example.org/place/> .
+@prefix field: <https://data.example.org/field/> .
+
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix dbr:   <http://dbpedia.org/resource/> .
+
+# ------------------------------------------------------------
+# Vocabulary (hash URIs -- small, fixed set of terms)
+# ------------------------------------------------------------
+
+voc:University a owl:Class ;
+    rdfs:subClassOf schema:CollegeOrUniversity ;
+    rdfs:label "University"@en , "มหาวิทยาลัย"@th ;
+    rdfs:comment "A degree-granting higher education institution."@en .
+
+voc:Campus a owl:Class ;
+    rdfs:subClassOf schema:Place ;
+    rdfs:label "Campus"@en , "วิทยาเขต"@th .
+
+voc:City a owl:Class ;
+    rdfs:subClassOf schema:City ;
+    rdfs:label "City"@en , "เมือง"@th .
+
+voc:hasCampus a owl:ObjectProperty ;
+    rdfs:domain voc:University ;
+    rdfs:range voc:Campus ;
+    rdfs:label "has campus"@en .
+
+voc:locatedIn a owl:ObjectProperty ;
+    rdfs:domain voc:Campus ;
+    rdfs:range voc:City ;
+    rdfs:label "located in"@en .
+
+voc:teachesField a owl:ObjectProperty ;
+    rdfs:domain voc:University ;
+    rdfs:range skos:Concept ;
+    rdfs:label "teaches field"@en .
+
+voc:foundingYear a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain voc:University ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "founding year"@en .
+
+# ------------------------------------------------------------
+# Instance data (slash URIs -- open-ended set)
+# ------------------------------------------------------------
+
+uni:chula a voc:University ;
+    rdfs:label "Chulalongkorn University"@en , "จุฬาลงกรณ์มหาวิทยาลัย"@th ;
+    voc:foundingYear "1917"^^xsd:gYear ;
+    voc:hasCampus camp:chula-main ;
+    voc:teachesField field:engineering , field:medicine ;
+    schema:url <https://www.chula.ac.th/> ;
+    owl:sameAs wd:Q321094 , dbr:Chulalongkorn_University .
+
+uni:kmitl a voc:University ;
+    rdfs:label "King Mongkut's Institute of Technology Ladkrabang"@en ,
+               "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"@th ;
+    voc:foundingYear "1960"^^xsd:gYear ;
+    voc:hasCampus camp:kmitl-main ;
+    voc:teachesField field:engineering , field:computer-science ;
+    schema:url <https://www.kmitl.ac.th/> ;
+    owl:sameAs wd:Q1470117 .
+
+uni:cmu a voc:University ;
+    rdfs:label "Chiang Mai University"@en , "มหาวิทยาลัยเชียงใหม่"@th ;
+    voc:foundingYear "1964"^^xsd:gYear ;
+    voc:hasCampus camp:cmu-main ;
+    voc:teachesField field:medicine , field:computer-science ;
+    schema:url <https://www.cmu.ac.th/> ;
+    owl:sameAs wd:Q1051067 , dbr:Chiang_Mai_University .
+
+camp:chula-main a voc:Campus ;
+    rdfs:label "Chulalongkorn Main Campus"@en ;
+    voc:locatedIn place:bangkok .
+
+camp:kmitl-main a voc:Campus ;
+    rdfs:label "KMITL Ladkrabang Campus"@en ;
+    voc:locatedIn place:bangkok .
+
+camp:cmu-main a voc:Campus ;
+    rdfs:label "CMU Suthep Campus"@en ;
+    voc:locatedIn place:chiang-mai .
+
+place:bangkok a voc:City ;
+    rdfs:label "Bangkok"@en , "กรุงเทพมหานคร"@th ;
+    geo:lat  "13.7563"^^xsd:decimal ;
+    geo:long "100.5018"^^xsd:decimal ;
+    owl:sameAs wd:Q1861 , dbr:Bangkok , <http://sws.geonames.org/1609350/> .
+
+place:chiang-mai a voc:City ;
+    rdfs:label "Chiang Mai"@en , "เชียงใหม่"@th ;
+    geo:lat  "18.7883"^^xsd:decimal ;
+    geo:long "98.9853"^^xsd:decimal ;
+    owl:sameAs wd:Q37742 , dbr:Chiang_Mai , <http://sws.geonames.org/1153671/> .
+
+# Fields of study modelled as SKOS concepts, linked to Wikidata
+field:engineering a skos:Concept ;
+    skos:prefLabel "Engineering"@en , "วิศวกรรมศาสตร์"@th ;
+    skos:exactMatch wd:Q11023 .
+
+field:medicine a skos:Concept ;
+    skos:prefLabel "Medicine"@en , "แพทยศาสตร์"@th ;
+    skos:exactMatch wd:Q11190 .
+
+field:computer-science a skos:Concept ;
+    skos:prefLabel "Computer science"@en , "วิทยาการคอมพิวเตอร์"@th ;
+    skos:exactMatch wd:Q21198 .

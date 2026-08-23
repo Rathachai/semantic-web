@@ -1,0 +1,128 @@
+@prefix camp: <https://data.example.org/campus/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix field: <https://data.example.org/field/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix place: <https://data.example.org/place/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix uni: <https://data.example.org/university/> .
+@prefix voc: <https://data.example.org/vocab#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+uni:chula a voc:University ;
+    rdfs:label "Chulalongkorn University"@en,
+        "จุฬาลงกรณ์มหาวิทยาลัย"@th ;
+    owl:sameAs dbr:Chulalongkorn_University,
+        wd:Q321094 ;
+    voc:foundingYear "1917"^^xsd:gYear ;
+    voc:hasCampus camp:chula-main ;
+    voc:teachesField field:engineering,
+        field:medicine ;
+    schema:url <https://www.chula.ac.th/> .
+
+uni:cmu a voc:University ;
+    rdfs:label "Chiang Mai University"@en,
+        "มหาวิทยาลัยเชียงใหม่"@th ;
+    owl:sameAs dbr:Chiang_Mai_University,
+        wd:Q1051067 ;
+    voc:foundingYear "1964"^^xsd:gYear ;
+    voc:hasCampus camp:cmu-main ;
+    voc:teachesField field:computer-science,
+        field:medicine ;
+    schema:url <https://www.cmu.ac.th/> .
+
+uni:kmitl a voc:University ;
+    rdfs:label "King Mongkut's Institute of Technology Ladkrabang"@en,
+        "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"@th ;
+    owl:sameAs wd:Q1470117 ;
+    voc:foundingYear "1960"^^xsd:gYear ;
+    voc:hasCampus camp:kmitl-main ;
+    voc:teachesField field:computer-science,
+        field:engineering ;
+    schema:url <https://www.kmitl.ac.th/> .
+
+voc:foundingYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "founding year"@en ;
+    rdfs:domain voc:University ;
+    rdfs:range xsd:gYear .
+
+voc:hasCampus a owl:ObjectProperty ;
+    rdfs:label "has campus"@en ;
+    rdfs:domain voc:University ;
+    rdfs:range voc:Campus .
+
+voc:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en ;
+    rdfs:domain voc:Campus ;
+    rdfs:range voc:City .
+
+voc:teachesField a owl:ObjectProperty ;
+    rdfs:label "teaches field"@en ;
+    rdfs:domain voc:University ;
+    rdfs:range skos:Concept .
+
+camp:chula-main a voc:Campus ;
+    rdfs:label "Chulalongkorn Main Campus"@en ;
+    voc:locatedIn place:bangkok .
+
+camp:cmu-main a voc:Campus ;
+    rdfs:label "CMU Suthep Campus"@en ;
+    voc:locatedIn place:chiang-mai .
+
+camp:kmitl-main a voc:Campus ;
+    rdfs:label "KMITL Ladkrabang Campus"@en ;
+    voc:locatedIn place:bangkok .
+
+place:chiang-mai a voc:City ;
+    rdfs:label "Chiang Mai"@en,
+        "เชียงใหม่"@th ;
+    owl:sameAs dbr:Chiang_Mai,
+        <http://sws.geonames.org/1153671/>,
+        wd:Q37742 ;
+    geo1:lat 18.7883 ;
+    geo1:long 98.9853 .
+
+field:computer-science a skos:Concept ;
+    skos:exactMatch wd:Q21198 ;
+    skos:prefLabel "Computer science"@en,
+        "วิทยาการคอมพิวเตอร์"@th .
+
+field:engineering a skos:Concept ;
+    skos:exactMatch wd:Q11023 ;
+    skos:prefLabel "Engineering"@en,
+        "วิศวกรรมศาสตร์"@th .
+
+field:medicine a skos:Concept ;
+    skos:exactMatch wd:Q11190 ;
+    skos:prefLabel "Medicine"@en,
+        "แพทยศาสตร์"@th .
+
+place:bangkok a voc:City ;
+    rdfs:label "Bangkok"@en,
+        "กรุงเทพมหานคร"@th ;
+    owl:sameAs dbr:Bangkok,
+        <http://sws.geonames.org/1609350/>,
+        wd:Q1861 ;
+    geo1:lat 13.7563 ;
+    geo1:long 100.5018 .
+
+voc:City a owl:Class ;
+    rdfs:label "City"@en,
+        "เมือง"@th ;
+    rdfs:subClassOf schema:City .
+
+voc:Campus a owl:Class ;
+    rdfs:label "Campus"@en,
+        "วิทยาเขต"@th ;
+    rdfs:subClassOf schema:Place .
+
+voc:University a owl:Class ;
+    rdfs:label "University"@en,
+        "มหาวิทยาลัย"@th ;
+    rdfs:comment "A degree-granting higher education institution."@en ;
+    rdfs:subClassOf schema:CollegeOrUniversity .
+

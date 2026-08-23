@@ -1,0 +1,493 @@
+[
+  {
+    "@id": "https://data.example.org/field/computer-science",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q21198"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Computer science"
+      },
+      {
+        "@language": "th",
+        "@value": "วิทยาการคอมพิวเตอร์"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/vocab#University",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A degree-granting higher education institution."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "University"
+      },
+      {
+        "@language": "th",
+        "@value": "มหาวิทยาลัย"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://schema.org/CollegeOrUniversity"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/place/chiang-mai",
+    "@type": [
+      "https://data.example.org/vocab#City"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Chiang Mai"
+      },
+      {
+        "@language": "th",
+        "@value": "เชียงใหม่"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q37742"
+      },
+      {
+        "@id": "http://dbpedia.org/resource/Chiang_Mai"
+      },
+      {
+        "@id": "http://sws.geonames.org/1153671/"
+      }
+    ],
+    "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "18.7883"
+      }
+    ],
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "98.9853"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/campus/chula-main",
+    "@type": [
+      "https://data.example.org/vocab#Campus"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Chulalongkorn Main Campus"
+      }
+    ],
+    "https://data.example.org/vocab#locatedIn": [
+      {
+        "@id": "https://data.example.org/place/bangkok"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/vocab#foundingYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://data.example.org/vocab#University"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "founding year"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#gYear"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/vocab#Campus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Campus"
+      },
+      {
+        "@language": "th",
+        "@value": "วิทยาเขต"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://schema.org/Place"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/university/cmu",
+    "@type": [
+      "https://data.example.org/vocab#University"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Chiang Mai University"
+      },
+      {
+        "@language": "th",
+        "@value": "มหาวิทยาลัยเชียงใหม่"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q1051067"
+      },
+      {
+        "@id": "http://dbpedia.org/resource/Chiang_Mai_University"
+      }
+    ],
+    "https://data.example.org/vocab#foundingYear": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+        "@value": "1964"
+      }
+    ],
+    "https://data.example.org/vocab#hasCampus": [
+      {
+        "@id": "https://data.example.org/campus/cmu-main"
+      }
+    ],
+    "https://data.example.org/vocab#teachesField": [
+      {
+        "@id": "https://data.example.org/field/medicine"
+      },
+      {
+        "@id": "https://data.example.org/field/computer-science"
+      }
+    ],
+    "https://schema.org/url": [
+      {
+        "@id": "https://www.cmu.ac.th/"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/vocab#hasCampus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://data.example.org/vocab#University"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has campus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://data.example.org/vocab#Campus"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/vocab#locatedIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://data.example.org/vocab#Campus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "located in"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://data.example.org/vocab#City"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/campus/kmitl-main",
+    "@type": [
+      "https://data.example.org/vocab#Campus"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "KMITL Ladkrabang Campus"
+      }
+    ],
+    "https://data.example.org/vocab#locatedIn": [
+      {
+        "@id": "https://data.example.org/place/bangkok"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/campus/cmu-main",
+    "@type": [
+      "https://data.example.org/vocab#Campus"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "CMU Suthep Campus"
+      }
+    ],
+    "https://data.example.org/vocab#locatedIn": [
+      {
+        "@id": "https://data.example.org/place/chiang-mai"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/vocab#teachesField",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://data.example.org/vocab#University"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "teaches field"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/field/engineering",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q11023"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Engineering"
+      },
+      {
+        "@language": "th",
+        "@value": "วิศวกรรมศาสตร์"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/university/kmitl",
+    "@type": [
+      "https://data.example.org/vocab#University"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "King Mongkut's Institute of Technology Ladkrabang"
+      },
+      {
+        "@language": "th",
+        "@value": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q1470117"
+      }
+    ],
+    "https://data.example.org/vocab#foundingYear": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+        "@value": "1960"
+      }
+    ],
+    "https://data.example.org/vocab#hasCampus": [
+      {
+        "@id": "https://data.example.org/campus/kmitl-main"
+      }
+    ],
+    "https://data.example.org/vocab#teachesField": [
+      {
+        "@id": "https://data.example.org/field/engineering"
+      },
+      {
+        "@id": "https://data.example.org/field/computer-science"
+      }
+    ],
+    "https://schema.org/url": [
+      {
+        "@id": "https://www.kmitl.ac.th/"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/field/medicine",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q11190"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Medicine"
+      },
+      {
+        "@language": "th",
+        "@value": "แพทยศาสตร์"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/place/bangkok",
+    "@type": [
+      "https://data.example.org/vocab#City"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Bangkok"
+      },
+      {
+        "@language": "th",
+        "@value": "กรุงเทพมหานคร"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q1861"
+      },
+      {
+        "@id": "http://dbpedia.org/resource/Bangkok"
+      },
+      {
+        "@id": "http://sws.geonames.org/1609350/"
+      }
+    ],
+    "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "13.7563"
+      }
+    ],
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "100.5018"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/vocab#City",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "City"
+      },
+      {
+        "@language": "th",
+        "@value": "เมือง"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://schema.org/City"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.example.org/university/chula",
+    "@type": [
+      "https://data.example.org/vocab#University"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Chulalongkorn University"
+      },
+      {
+        "@language": "th",
+        "@value": "จุฬาลงกรณ์มหาวิทยาลัย"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q321094"
+      },
+      {
+        "@id": "http://dbpedia.org/resource/Chulalongkorn_University"
+      }
+    ],
+    "https://data.example.org/vocab#foundingYear": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+        "@value": "1917"
+      }
+    ],
+    "https://data.example.org/vocab#hasCampus": [
+      {
+        "@id": "https://data.example.org/campus/chula-main"
+      }
+    ],
+    "https://data.example.org/vocab#teachesField": [
+      {
+        "@id": "https://data.example.org/field/engineering"
+      },
+      {
+        "@id": "https://data.example.org/field/medicine"
+      }
+    ],
+    "https://schema.org/url": [
+      {
+        "@id": "https://www.chula.ac.th/"
+      }
+    ]
+  }
+]

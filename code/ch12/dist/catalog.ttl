@@ -1,0 +1,42 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.example.org/catalog> a dcat:Catalog ;
+    dcterms:title "Example Open Data Catalog"@en ;
+    dcat:dataset <https://data.example.org/dataset/universities> .
+
+<https://data.example.org/dataset/universities> a dcat:Dataset ;
+    dcterms:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/ANNUAL> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://data.example.org/org/example> ;
+    dcterms:title "Thai Universities Linked Data"@en ;
+    dcat:distribution <https://data.example.org/dataset/universities/jsonld>,
+        <https://data.example.org/dataset/universities/nt>,
+        <https://data.example.org/dataset/universities/rdf>,
+        <https://data.example.org/dataset/universities/sparql>,
+        <https://data.example.org/dataset/universities/ttl> .
+
+<https://data.example.org/dataset/universities/jsonld> a dcat:Distribution ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://data.example.org/dump/universities.jsonld> ;
+    dcat:mediaType "application/ld+json" .
+
+<https://data.example.org/dataset/universities/nt> a dcat:Distribution ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://data.example.org/dump/universities.nt> ;
+    dcat:mediaType "application/n-triples" .
+
+<https://data.example.org/dataset/universities/rdf> a dcat:Distribution ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://data.example.org/dump/universities.rdf> ;
+    dcat:mediaType "application/rdf+xml" .
+
+<https://data.example.org/dataset/universities/sparql> a dcat:Distribution ;
+    dcat:accessURL <https://data.example.org/sparql> ;
+    dcat:mediaType "application/sparql-results+json" .
+
+<https://data.example.org/dataset/universities/ttl> a dcat:Distribution ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://data.example.org/dump/universities.ttl> ;
+    dcat:mediaType "text/turtle" .
+

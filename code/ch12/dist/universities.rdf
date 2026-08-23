@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:geo1="http://www.w3.org/2003/01/geo/wgs84_pos#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:schema="https://schema.org/"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:voc="https://data.example.org/vocab#"
+>
+  <rdf:Description rdf:about="https://data.example.org/field/medicine">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Medicine</skos:prefLabel>
+    <skos:prefLabel xml:lang="th">แพทยศาสตร์</skos:prefLabel>
+    <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q11190"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/campus/kmitl-main">
+    <rdf:type rdf:resource="https://data.example.org/vocab#Campus"/>
+    <rdfs:label xml:lang="en">KMITL Ladkrabang Campus</rdfs:label>
+    <voc:locatedIn rdf:resource="https://data.example.org/place/bangkok"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/vocab#locatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://data.example.org/vocab#Campus"/>
+    <rdfs:range rdf:resource="https://data.example.org/vocab#City"/>
+    <rdfs:label xml:lang="en">located in</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/vocab#hasCampus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://data.example.org/vocab#University"/>
+    <rdfs:range rdf:resource="https://data.example.org/vocab#Campus"/>
+    <rdfs:label xml:lang="en">has campus</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/vocab#University">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://schema.org/CollegeOrUniversity"/>
+    <rdfs:label xml:lang="en">University</rdfs:label>
+    <rdfs:label xml:lang="th">มหาวิทยาลัย</rdfs:label>
+    <rdfs:comment xml:lang="en">A degree-granting higher education institution.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/campus/cmu-main">
+    <rdf:type rdf:resource="https://data.example.org/vocab#Campus"/>
+    <rdfs:label xml:lang="en">CMU Suthep Campus</rdfs:label>
+    <voc:locatedIn rdf:resource="https://data.example.org/place/chiang-mai"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/university/chula">
+    <rdf:type rdf:resource="https://data.example.org/vocab#University"/>
+    <rdfs:label xml:lang="en">Chulalongkorn University</rdfs:label>
+    <rdfs:label xml:lang="th">จุฬาลงกรณ์มหาวิทยาลัย</rdfs:label>
+    <voc:foundingYear rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1917</voc:foundingYear>
+    <voc:hasCampus rdf:resource="https://data.example.org/campus/chula-main"/>
+    <voc:teachesField rdf:resource="https://data.example.org/field/engineering"/>
+    <voc:teachesField rdf:resource="https://data.example.org/field/medicine"/>
+    <schema:url rdf:resource="https://www.chula.ac.th/"/>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q321094"/>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Chulalongkorn_University"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/university/cmu">
+    <rdf:type rdf:resource="https://data.example.org/vocab#University"/>
+    <rdfs:label xml:lang="en">Chiang Mai University</rdfs:label>
+    <rdfs:label xml:lang="th">มหาวิทยาลัยเชียงใหม่</rdfs:label>
+    <voc:foundingYear rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1964</voc:foundingYear>
+    <voc:hasCampus rdf:resource="https://data.example.org/campus/cmu-main"/>
+    <voc:teachesField rdf:resource="https://data.example.org/field/medicine"/>
+    <voc:teachesField rdf:resource="https://data.example.org/field/computer-science"/>
+    <schema:url rdf:resource="https://www.cmu.ac.th/"/>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1051067"/>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Chiang_Mai_University"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/place/bangkok">
+    <rdf:type rdf:resource="https://data.example.org/vocab#City"/>
+    <rdfs:label xml:lang="en">Bangkok</rdfs:label>
+    <rdfs:label xml:lang="th">กรุงเทพมหานคร</rdfs:label>
+    <geo1:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13.7563</geo1:lat>
+    <geo1:long rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100.5018</geo1:long>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1861"/>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bangkok"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1609350/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/field/engineering">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Engineering</skos:prefLabel>
+    <skos:prefLabel xml:lang="th">วิศวกรรมศาสตร์</skos:prefLabel>
+    <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q11023"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/university/kmitl">
+    <rdf:type rdf:resource="https://data.example.org/vocab#University"/>
+    <rdfs:label xml:lang="en">King Mongkut's Institute of Technology Ladkrabang</rdfs:label>
+    <rdfs:label xml:lang="th">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</rdfs:label>
+    <voc:foundingYear rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1960</voc:foundingYear>
+    <voc:hasCampus rdf:resource="https://data.example.org/campus/kmitl-main"/>
+    <voc:teachesField rdf:resource="https://data.example.org/field/engineering"/>
+    <voc:teachesField rdf:resource="https://data.example.org/field/computer-science"/>
+    <schema:url rdf:resource="https://www.kmitl.ac.th/"/>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1470117"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/vocab#teachesField">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://data.example.org/vocab#University"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">teaches field</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/vocab#City">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://schema.org/City"/>
+    <rdfs:label xml:lang="en">City</rdfs:label>
+    <rdfs:label xml:lang="th">เมือง</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/vocab#Campus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
+    <rdfs:label xml:lang="en">Campus</rdfs:label>
+    <rdfs:label xml:lang="th">วิทยาเขต</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/place/chiang-mai">
+    <rdf:type rdf:resource="https://data.example.org/vocab#City"/>
+    <rdfs:label xml:lang="en">Chiang Mai</rdfs:label>
+    <rdfs:label xml:lang="th">เชียงใหม่</rdfs:label>
+    <geo1:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18.7883</geo1:lat>
+    <geo1:long rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">98.9853</geo1:long>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q37742"/>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Chiang_Mai"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1153671/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/field/computer-science">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Computer science</skos:prefLabel>
+    <skos:prefLabel xml:lang="th">วิทยาการคอมพิวเตอร์</skos:prefLabel>
+    <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q21198"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/vocab#foundingYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://data.example.org/vocab#University"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    <rdfs:label xml:lang="en">founding year</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.example.org/campus/chula-main">
+    <rdf:type rdf:resource="https://data.example.org/vocab#Campus"/>
+    <rdfs:label xml:lang="en">Chulalongkorn Main Campus</rdfs:label>
+    <voc:locatedIn rdf:resource="https://data.example.org/place/bangkok"/>
+  </rdf:Description>
+</rdf:RDF>

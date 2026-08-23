@@ -1,0 +1,79 @@
+@prefix lib: <http://example.org/library#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+lib: a owl:Ontology ;
+    rdfs:label "Library Ontology"@en .
+
+lib:FrequentBorrower a owl:Class ;
+    rdfs:label "Frequent Borrower"@en ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( lib:Member [ a owl:Restriction ;
+                        owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                        owl:onClass lib:Loan ;
+                        owl:onProperty lib:hasLoan ] ) ] .
+
+lib:OverdueLoan a owl:Class ;
+    rdfs:label "Overdue Loan"@en ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( lib:Loan [ a owl:Restriction ;
+                        owl:hasValue true ;
+                        owl:onProperty lib:overdue ] ) ] .
+
+lib:dueDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "due date"@en ;
+    rdfs:domain lib:Loan ;
+    rdfs:range xsd:dateTime .
+
+lib:isbn a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "ISBN"@en ;
+    rdfs:domain lib:Book ;
+    rdfs:range xsd:string .
+
+lib:loanedBook a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "loaned book"@en ;
+    rdfs:domain lib:Loan ;
+    rdfs:range lib:Book .
+
+lib:returned a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "returned"@en ;
+    rdfs:domain lib:Loan ;
+    rdfs:range xsd:boolean .
+
+lib:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    owl:disjointWith lib:Book,
+        lib:Loan .
+
+lib:borrower a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "borrower"@en ;
+    rdfs:domain lib:Loan ;
+    rdfs:range lib:Member .
+
+lib:hasLoan a owl:ObjectProperty ;
+    rdfs:label "has loan"@en ;
+    owl:inverseOf lib:borrower .
+
+lib:overdue a owl:DatatypeProperty ;
+    rdfs:label "overdue"@en ;
+    rdfs:domain lib:Loan .
+
+lib:Member a owl:Class ;
+    rdfs:label "Library Member"@en ;
+    rdfs:subClassOf lib:Person .
+
+lib:Book a owl:Class ;
+    rdfs:label "Book"@en ;
+    owl:disjointWith lib:Loan .
+
+lib:Loan a owl:Class ;
+    rdfs:label "Loan"@en ;
+    rdfs:comment "A time-indexed situation: a member borrowed a book."@en .
+
