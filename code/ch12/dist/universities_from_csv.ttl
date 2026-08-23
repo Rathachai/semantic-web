@@ -1,0 +1,63 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix place: <https://data.example.org/place/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix uni: <https://data.example.org/university/> .
+@prefix voc: <https://data.example.org/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+uni:chiang-mai-university a voc:University ;
+    rdfs:label "Chiang Mai University"@en,
+        "มหาวิทยาลัยเชียงใหม่"@th ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1071609> ;
+    voc:foundingYear "1964"^^xsd:gYear ;
+    voc:locatedIn place:chiang-mai ;
+    schema:url <https://www.cmu.ac.th/> .
+
+uni:chulalongkorn-university a voc:University ;
+    rdfs:label "Chulalongkorn University"@en,
+        "จุฬาลงกรณ์มหาวิทยาลัย"@th ;
+    owl:sameAs <http://www.wikidata.org/entity/Q855730> ;
+    voc:foundingYear "1917"^^xsd:gYear ;
+    voc:locatedIn place:bangkok ;
+    schema:url <https://www.chula.ac.th/> .
+
+uni:king-mongkuts-institute-of-technology-ladkrabang a voc:University ;
+    rdfs:label "King Mongkut's Institute of Technology Ladkrabang"@en,
+        "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"@th ;
+    owl:sameAs <http://www.wikidata.org/entity/Q849209> ;
+    voc:foundingYear "1960"^^xsd:gYear ;
+    voc:locatedIn place:bangkok ;
+    schema:url <https://www.kmitl.ac.th> .
+
+uni:mahidol-university a voc:University ;
+    rdfs:label "Mahidol University"@en,
+        "มหาวิทยาลัยมหิดล"@th ;
+    owl:sameAs <http://www.wikidata.org/entity/Q626804> ;
+    voc:foundingYear "1888"^^xsd:gYear ;
+    voc:locatedIn place:nakhon-pathom ;
+    schema:url <https://mahidol.ac.th> .
+
+uni:thammasat-university a voc:University ;
+    rdfs:label "Thammasat University"@en,
+        "มหาวิทยาลัยธรรมศาสตร์"@th ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1209733> ;
+    voc:foundingYear "1934"^^xsd:gYear ;
+    voc:locatedIn place:bangkok ;
+    schema:url <https://tu.ac.th/> .
+
+place:chiang-mai a voc:City ;
+    rdfs:label "Chiang Mai"@en .
+
+place:nakhon-pathom a voc:City ;
+    rdfs:label "Nakhon Pathom"@en .
+
+place:bangkok a voc:City ;
+    rdfs:label "Bangkok"@en .
+
+voc:City a owl:Class ;
+    rdfs:subClassOf schema:City .
+
+voc:University a owl:Class ;
+    rdfs:subClassOf schema:CollegeOrUniversity .
+
