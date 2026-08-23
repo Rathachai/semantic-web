@@ -76,7 +76,7 @@ uni:chula a voc:University ;
     voc:hasCampus camp:chula-main ;
     voc:teachesField field:engineering , field:medicine ;
     schema:url <https://www.chula.ac.th/> ;
-    owl:sameAs wd:Q321094 , dbr:Chulalongkorn_University .
+    owl:sameAs wd:Q855730 , dbr:Chulalongkorn_University .
 
 uni:kmitl a voc:University ;
     rdfs:label "King Mongkut's Institute of Technology Ladkrabang"@en ,
@@ -85,7 +85,7 @@ uni:kmitl a voc:University ;
     voc:hasCampus camp:kmitl-main ;
     voc:teachesField field:engineering , field:computer-science ;
     schema:url <https://www.kmitl.ac.th/> ;
-    owl:sameAs wd:Q1470117 .
+    owl:sameAs wd:Q849209 .
 
 uni:cmu a voc:University ;
     rdfs:label "Chiang Mai University"@en , "มหาวิทยาลัยเชียงใหม่"@th ;
@@ -93,7 +93,7 @@ uni:cmu a voc:University ;
     voc:hasCampus camp:cmu-main ;
     voc:teachesField field:medicine , field:computer-science ;
     schema:url <https://www.cmu.ac.th/> ;
-    owl:sameAs wd:Q1051067 , dbr:Chiang_Mai_University .
+    owl:sameAs wd:Q1071609 , dbr:Chiang_Mai_University .
 
 camp:chula-main a voc:Campus ;
     rdfs:label "Chulalongkorn Main Campus"@en ;
@@ -117,7 +117,7 @@ place:chiang-mai a voc:City ;
     rdfs:label "Chiang Mai"@en , "เชียงใหม่"@th ;
     geo:lat  "18.7883"^^xsd:decimal ;
     geo:long "98.9853"^^xsd:decimal ;
-    owl:sameAs wd:Q37742 , dbr:Chiang_Mai , <http://sws.geonames.org/1153671/> .
+    owl:sameAs wd:Q52028 , dbr:Chiang_Mai , <http://sws.geonames.org/1153671/> .
 
 # Fields of study modelled as SKOS concepts, linked to Wikidata
 field:engineering a skos:Concept ;
