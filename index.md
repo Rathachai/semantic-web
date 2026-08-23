@@ -110,6 +110,30 @@ Rule anatomy, atom types, builtins, ตัวอย่าง rule, SQWRL, กา
 ### [Appendix](appendix/A.01-turtle-cheatsheet.md)
 Turtle / SPARQL / OWL cheat sheet, prefix registry, tools setup, glossary, references
 
+
+---
+
+## 📓 Interactive Notebooks
+
+แต่ละบทมี Jupyter Notebook ประกอบที่รันทีละ cell ได้จริง กด badge เพื่อเปิดใน Google Colab ทันที (ไม่ต้องติดตั้งอะไรเลย)
+
+| บท | เปิดใน Colab |
+| --- | --- |
+| 01 — Introduction | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch01/ch01_notebook.ipynb) |
+| 02 — RDF | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch02/ch02_notebook.ipynb) |
+| 03 — RDFS | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch03/ch03_notebook.ipynb) |
+| 04 — Logics | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch04/ch04_notebook.ipynb) |
+| 05 — Knowledge Management | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch05/ch05_notebook.ipynb) |
+| 06 — SPARQL | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch06/ch06_notebook.ipynb) |
+| 07 — Python Semantic Web | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch07/ch07_notebook.ipynb) |
+| 08 — OWL | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch08/ch08_notebook.ipynb) |
+| 09 — Well-known Ontologies | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch09/ch09_notebook.ipynb) |
+| 10 — Ontology Design | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch10/ch10_notebook.ipynb) |
+| 11 — SWRL | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch11/ch11_notebook.ipynb) |
+| 12 — Linked Open Data | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rathachai/semantic-web/blob/main/code/ch12/ch12_notebook.ipynb) |
+
+> 💡 ทุก notebook ใช้ `!pip install` ติดตั้งไลบรารีในเซลล์แรก และรันจนจบพร้อมผลลัพธ์จริงมาให้แล้ว — กด ▶️ ไล่ทีละ cell เพื่อดูว่าเกิดอะไรขึ้นในแต่ละขั้น
+
 ---
 
 ## Key Points
