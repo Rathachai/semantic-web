@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri id="core"     name="http://example.org/uni/core"     uri="uni-core.ttl"/>
+  <uri id="academic" name="http://example.org/uni/academic" uri="uni-academic.ttl"/>
+  <uri id="hr"       name="http://example.org/uni/hr"       uri="uni-hr.ttl"/>
+  <uri id="library"  name="http://example.org/uni/library"  uri="uni-library.ttl"/>
+</catalog>

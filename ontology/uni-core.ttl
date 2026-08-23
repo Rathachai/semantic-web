@@ -1,0 +1,39 @@
+@prefix core:    <http://example.org/uni/core#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://example.org/uni/core> a owl:Ontology ;
+    owl:versionIRI  <http://example.org/uni/core/1.0.0> ;
+    owl:versionInfo "1.0.0" ;
+    dcterms:title   "University Core Ontology"@en ;
+    dcterms:creator "Semantic Web Course"@en ;
+    rdfs:comment    "Shared concepts used by every university module. Changes rarely."@en .
+
+core:Person a owl:Class ;
+    rdfs:label   "Person"@en ;
+    rdfs:comment "A human being."@en ;
+    owl:disjointWith core:Organization , core:Document .
+
+core:Organization a owl:Class ;
+    rdfs:label   "Organization"@en ;
+    rdfs:comment "A structured group of people."@en .
+
+core:Document a owl:Class ;
+    rdfs:label   "Document"@en ;
+    rdfs:comment "An information object."@en .
+
+core:memberOf a owl:ObjectProperty ;
+    rdfs:label  "member of"@en ;
+    rdfs:domain core:Person ;
+    rdfs:range  core:Organization .
+
+core:partOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label  "part of"@en ;
+    rdfs:domain core:Organization ;
+    rdfs:range  core:Organization .
+
+core:name a owl:DatatypeProperty ;
+    rdfs:domain core:Person ;
+    rdfs:range  xsd:string .

@@ -1,0 +1,32 @@
+@prefix hr:      <http://example.org/uni/hr#> .
+@prefix core:    <http://example.org/uni/core#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://example.org/uni/hr> a owl:Ontology ;
+    owl:versionIRI  <http://example.org/uni/hr/1.0.0> ;
+    owl:imports     <http://example.org/uni/core> ;
+    dcterms:title   "University HR Ontology"@en .
+
+hr:Employee a owl:Class ;
+    rdfs:subClassOf core:Person ;
+    rdfs:label "Employee"@en .
+
+hr:Contract a owl:Class ;
+    rdfs:subClassOf core:Document ;
+    rdfs:label "Contract"@en .
+
+hr:employedBy a owl:ObjectProperty ;
+    rdfs:subPropertyOf core:memberOf ;
+    rdfs:domain hr:Employee ;
+    rdfs:range  core:Organization .
+
+hr:hasContract a owl:ObjectProperty ;
+    rdfs:domain hr:Employee ;
+    rdfs:range  hr:Contract .
+
+hr:salary a owl:DatatypeProperty ;
+    rdfs:domain hr:Contract ;
+    rdfs:range  xsd:decimal .

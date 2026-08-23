@@ -1,0 +1,39 @@
+@prefix acad:    <http://example.org/uni/academic#> .
+@prefix core:    <http://example.org/uni/core#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://example.org/uni/academic> a owl:Ontology ;
+    owl:versionIRI  <http://example.org/uni/academic/1.0.0> ;
+    owl:imports     <http://example.org/uni/core> ;
+    dcterms:title   "University Academic Ontology"@en .
+
+acad:Student a owl:Class ;
+    rdfs:subClassOf core:Person ;
+    rdfs:label "Student"@en .
+
+acad:Professor a owl:Class ;
+    rdfs:subClassOf core:Person ;
+    rdfs:label "Professor"@en .
+
+acad:Course a owl:Class ;
+    rdfs:subClassOf core:Document ;
+    rdfs:label "Course"@en .
+
+acad:Department a owl:Class ;
+    rdfs:subClassOf core:Organization ;
+    rdfs:label "Department"@en .
+
+acad:enrolledIn a owl:ObjectProperty ;
+    rdfs:domain acad:Student ;
+    rdfs:range  acad:Course .
+
+acad:teaches a owl:ObjectProperty ;
+    rdfs:domain acad:Professor ;
+    rdfs:range  acad:Course .
+
+acad:courseCode a owl:DatatypeProperty ;
+    rdfs:domain acad:Course ;
+    rdfs:range  xsd:string .

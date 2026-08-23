@@ -1,0 +1,35 @@
+@prefix lib:     <http://example.org/uni/library#> .
+@prefix core:    <http://example.org/uni/core#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://example.org/uni/library> a owl:Ontology ;
+    owl:versionIRI  <http://example.org/uni/library/1.0.0> ;
+    owl:imports     <http://example.org/uni/core> ;
+    dcterms:title   "University Library Ontology"@en .
+
+lib:Book a owl:Class ;
+    rdfs:subClassOf core:Document ;
+    rdfs:label "Book"@en .
+
+lib:Loan a owl:Class ;
+    rdfs:label   "Loan"@en ;
+    rdfs:comment "A time-indexed situation: a person borrowed a book."@en .
+
+lib:borrower a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain lib:Loan ;
+    rdfs:range  core:Person .
+
+lib:loanedBook a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain lib:Loan ;
+    rdfs:range  lib:Book .
+
+lib:dueDate a owl:DatatypeProperty ;
+    rdfs:domain lib:Loan ;
+    rdfs:range  xsd:date .
+
+lib:isbn a owl:DatatypeProperty ;
+    rdfs:domain lib:Book ;
+    rdfs:range  xsd:string .
